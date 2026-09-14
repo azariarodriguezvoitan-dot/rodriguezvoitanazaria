@@ -16,12 +16,10 @@
         tailwind.config = {
             theme: {
                 extend: {
-
                     fontFamily: {
                         science: ['Science Gothic', 'sans-serif'],
                         electrolize: ['Electrolize', 'sans-serif']
                     },
-
                     colors: {
                         primary: '#F3F4F6',
                         secondary: '#FF6B00',
@@ -29,28 +27,6 @@
                         quarty: '#0F0C1B',
                         sixty: '#ffffff0c',
                         septy: '#00000065'
-                    },
-
-                    spacing: {
-                        '10': "10px",
-                        '20': "20px",
-                        '30': "30px",
-                        '40': "40px",
-                        '50': "50px",
-                        '60': "60px",
-                        '70': "70px",
-                        '80': "80px",
-                        '90': "90px",
-                        '100': "100px",
-                        '150': "150px",
-                        '200': "200px",
-                        '220': "220px",
-                        '250': "250px",
-                        '300': "300px",
-                        '400': "400px",
-                        '500': "500px",
-                        '600': "600px",
-                        '700': "700px"
                     }
                 }
             }
@@ -58,433 +34,461 @@
     </script>
 </head>
 <body class="font-electrolize bg-quarty text-primary cursor-pointer overflow-x-hidden">
-    <header class="h-screen">
-        <section class="">
-            <div class="">
-                <nav class="bg-septy fixed top-0 left-0 w-full z-50 backdrop-blur-md flex justify-between items-center px-80 py-20 border border-tertiary rounded-full">
-                    <ul class="">
-                        <li class="font-science font-bold text-2xl bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text">AZAR.DEV</li>
-                    </ul>
-                    <ul class="flex gap-40">
-                        <li class="">
-                            <a href="" class="hover:bg- hover:text-tertiary p-2 rounded-full hover:border-b-2 hover:border-secondary transition-transform duration-900 ease-in-out">
-                                <span class="fas fa-house"></span> ACCEUIL
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#expertises" class="hover:bg- hover:text-tertiary p-2 rounded-full hover:border-b-2 hover:border-secondary transition-transform duration-900 ease-in-out">
-                                <span class="fas fa-gears"></span> EXPERTISE
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#competences" class="hover:bg- hover:text-tertiary p-2 rounded-full hover:border-b-2 hover:border-secondary transition-transform duration-900 ease-in-out">
-                                <span class="fas fa-bars-progress"></span> COMPETENCES
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#realisations" class="hover:bg- hover:text-tertiary p-2 rounded-full hover:border-b-2 hover:border-secondary transition-transform duration-900 ease-in-out">
-                                <span class="fas fa-laptop-code"></span> REALISATIONS
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#parcours" class="hover:bg- hover:text-tertiary p-2 rounded-full hover:border-b-2 hover:border-secondary transition-transform duration-900 ease-in-out">
-                                <span class="fas fa-route"></span> PARCOURS
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="">
-                        <li class="bg-gradient-to-r from-secondary to-tertiary transition-transform hover:-translate-y-2 hover:shadow-[10px_0_10px_0_#8B5CF6] duration-500 ease-in-out p-2 rounded-full px-20 font-bold">
-                            <a href="" class="">
-                                <span class="fas fa-paper-plane"></span> CONTACT
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+    <header class="min-h-screen">
+        <!-- Navigation Responsive -->
+        <nav class="bg-septy fixed top-0 left-0 w-full z-50 backdrop-blur-md flex justify-between items-center px-6 md:px-16 py-4 border-b border-tertiary">
+            <a href="#" class="font-science font-bold text-2xl bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text">AZAR.DEV</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-primary text-2xl focus:outline-none">
+                <span class="fas fa-bars"></span>
+            </button>
+
+            <!-- Desktop Nav Links -->
+            <ul class="hidden md:flex gap-8 items-center">
+                <li><a href="#" class="hover:text-tertiary p-2 transition-colors"><span class="fas fa-house"></span> ACCUEIL</a></li>
+                <li><a href="#expertises" class="hover:text-tertiary p-2 transition-colors"><span class="fas fa-gears"></span> EXPERTISE</a></li>
+                <li><a href="#competences" class="hover:text-tertiary p-2 transition-colors"><span class="fas fa-bars-progress"></span> COMPETENCES</a></li>
+                <li><a href="#realisations" class="hover:text-tertiary p-2 transition-colors"><span class="fas fa-laptop-code"></span> REALISATIONS</a></li>
+                <li><a href="#parcours" class="hover:text-tertiary p-2 transition-colors"><span class="fas fa-route"></span> PARCOURS</a></li>
+            </ul>
+
+            <div class="hidden md:block">
+                <a href="" class="bg-gradient-to-r from-secondary to-tertiary hover:-translate-y-1 transition-transform inline-block p-2 px-6 rounded-full font-bold">
+                    <span class="fas fa-paper-plane"></span> CONTACT
+                </a>
             </div>
-        </section>
-        <section class="py-30">
-            <div class="pt-60 px-100 flex justify-between items-center gap-100">
+        </nav>
+
+        <!-- Mobile Menu Drawer (Hidden by default) -->
+        <div id="mobile-menu" class="fixed inset-x-0 top-[70px] bg-quarty/95 backdrop-blur-lg border-b border-tertiary p-6 flex flex-col gap-4 hidden z-40 md:hidden">
+            <a href="#" class="mobile-link text-lg hover:text-tertiary"><span class="fas fa-house mr-2"></span> ACCUEIL</a>
+            <a href="#expertises" class="mobile-link text-lg hover:text-tertiary"><span class="fas fa-gears mr-2"></span> EXPERTISE</a>
+            <a href="#competences" class="mobile-link text-lg hover:text-tertiary"><span class="fas fa-bars-progress mr-2"></span> COMPETENCES</a>
+            <a href="#realisations" class="mobile-link text-lg hover:text-tertiary"><span class="fas fa-laptop-code mr-2"></span> REALISATIONS</a>
+            <a href="#parcours" class="mobile-link text-lg hover:text-tertiary"><span class="fas fa-route mr-2"></span> PARCOURS</a>
+            <a href="" class="bg-gradient-to-r from-secondary to-tertiary text-center p-3 rounded-full font-bold mt-2">
+                <span class="fas fa-paper-plane"></span> CONTACT
+            </a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="pt-32 px-6 md:px-16 pb-12">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-12">
                 <div class="w-full">
-                    <span class="bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text font-bold">DEVELOPPEMENT & DESIGN WEB</span>
-                    <h1 class="text-7xl font-bold font-science py-4">RODRIGUEZ-VOITAN Azaria</h1>
-                    <p class="py-10">Créateur d'architectures web d'avant-garde, résilientes et hautement sécurisées. Je <br> fusionne l'efficacité algorithmique et la perfection esthétique pour <br> sublimer votre produit technologique.</p>
-                    <div class="py-30">
-                        <a href="#realisations" class="bg-gradient-to-r from-secondary to-tertiary transition-transform hover:-translate-y-2 hover:shadow-[10px_0_10px_0_#8B5CF6] duration-500 ease-in-out px-40 py-5 rounded-[0_25px_0_25px] font-bold">
+                    <span class="bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text font-bold text-sm md:text-base">DEVELOPPEMENT & DESIGN WEB</span>
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-science py-4 leading-tight">RODRIGUEZ-VOITAN Azaria</h1>
+                    <p class="py-4 text-base md:text-lg text-gray-300">Créateur d'architectures web d'avant-garde, résilientes et hautement sécurisées. Je fusionne l'efficacité algorithmique et la perfection esthétique pour sublimer votre produit technologique.</p>
+                    <div class="py-6">
+                        <a href="#realisations" class="bg-gradient-to-r from-secondary to-tertiary transition-transform hover:-translate-y-2 inline-block px-6 md:px-10 py-3 rounded-[0_25px_0_25px] font-bold text-sm md:text-base">
                             <span class="fas fa-laptop-code"></span> DECOUVRIR MES REALISATIONS
                         </a>
                     </div>
-                    <div class="flex gap-20 py-20">
-                        <a href="" class="text-3xl border rounded-full p-2 text-tertiary border-tertiary transition-transform hover:text-secondary hover:border-secondary hover:scale-110 duration-500 ease-in-out"><i class="fab fa-facebook"></i></a>
-                        <a href="" class="text-3xl border rounded-full p-2 text-tertiary border-tertiary transition-transform hover:text-secondary hover:border-secondary hover:scale-110 duration-500 ease-in-out"><i class="fab fa-linkedin"></i></a>
-                        <a href="" class="text-3xl border rounded-full p-2 text-tertiary border-tertiary transition-transform hover:text-secondary hover:border-secondary hover:scale-110 duration-500 ease-in-out"><i class="fab fa-whatsapp"></i></a>
+                    <div class="flex gap-4 py-4">
+                        <a href="" class="text-2xl md:text-3xl border rounded-full p-3 text-tertiary border-tertiary transition-transform hover:text-secondary hover:border-secondary hover:scale-110 duration-500"><i class="fab fa-facebook"></i></a>
+                        <a href="" class="text-2xl md:text-3xl border rounded-full p-3 text-tertiary border-tertiary transition-transform hover:text-secondary hover:border-secondary hover:scale-110 duration-500"><i class="fab fa-linkedin"></i></a>
+                        <a href="" class="text-2xl md:text-3xl border rounded-full p-3 text-tertiary border-tertiary transition-transform hover:text-secondary hover:border-secondary hover:scale-110 duration-500"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="w-full">
-                    <div class="overflow-hidden shadow-[20px_0__20px_#FF6B00] w-400 h-400 rounded-full border border-tertiary m-auto my-10 relative">
-                        <img src="RODRIGUEZ-VOITAN_Azaria.jpeg" alt="image_de_Azaria" class="hover:scale-110 transition-transform duration-500 ease-in-out">
-                        <!-- <div class="absolute font-bold text-primary  bg-septy p-2 border-2 border-tertiary rounded-lg -left-30 top-10"> <span class="fas fa-code"></span> DEVELOPPEMENT WEB</div>
-                        <div class="absolute font-bold text-primary  bg-septy p-2 border-2 border-tertiary rounded-lg -right-30 bottom-20"> <span class="fas fa-wand-magic-sparkles"></span> DESIGN WEB</div> -->
+                <div class="w-full flex flex-col items-center">
+                    <div class="overflow-hidden shadow-[0_0_30px_#FF6B00] w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border border-tertiary relative">
+                        <img src="RODRIGUEZ-VOITAN_Azaria.jpeg" alt="image_de_Azaria" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-in-out">
                     </div>
-                    <div class="py-80">
-                        <div class="flex justify-between items-center gap-30 border px-20 py-20 rounded-[0_25px_0_25px] bg-quarty">
+                    <div class="py-8 w-full">
+                        <div class="flex justify-around items-center gap-4 border px-4 py-6 rounded-[0_25px_0_25px] bg-quarty">
                             <div class="text-center">
-                                <span class="text-5xl font-science font-bold">+2</span> <br>
-                                <span class="font-bold text-2xl">D'experience</span>
+                                <span class="text-3xl sm:text-5xl font-science font-bold">+2</span><br>
+                                <span class="font-bold text-sm sm:text-xl">D'expérience</span>
                             </div>
-                            <div class="bg-primary h-30 w-1 rounded-full"></div>
+                            <div class="bg-primary h-12 w-[1px] rounded-full"></div>
                             <div class="text-center">
-                                <span class="text-5xl font-science font-bold">+8</span> <br>
-                                <span class="font-bold text-2xl">Projets réalisés</span>
+                                <span class="text-3xl sm:text-5xl font-science font-bold">+3</span><br>
+                                <span class="font-bold text-sm sm:text-xl">Projets</span>
                             </div>
-                            <div class="bg-primary h-30 w-1 rounded-full"></div>
+                            <div class="bg-primary h-12 w-[1px] rounded-full"></div>
                             <div class="text-center">
-                                <span class="text-5xl font-science font-bold">+15</span> <br>
-                                <span class="font-bold text-2xl">Clients Satisfaits</span>
+                                <span class="text-3xl sm:text-5xl font-science font-bold">+2</span><br>
+                                <span class="font-bold text-sm sm:text-xl">Clients</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Marquee Section -->
         <section class="bg-[#0F0C1B] overflow-hidden py-6 border-y border-[#8B5CF6]/10 relative">
             <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0F0C1B] to-transparent z-10 pointer-events-none"></div>
             <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0F0C1B] to-transparent z-10 pointer-events-none"></div>
 
-            <div class="flex overflow-hidden select-none gap-40">
-                
-                <div class="animate-marquee-reverse flex min-w-full shrink-0 justify-around gap-40 text-3xl font-['Electrolize'] tracking-wider text-[#F3F4F6]">
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-html5 text-[#FF6B00]"></span> HTML5</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-css3-alt text-[#8B5CF6]"></span> CSS3</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-js text-yellow-400"></span> JAVASCRIPT</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-bootstrap text-purple-500"></span> BOOTSTRAP</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fas fa-wind text-cyan-400"></span> TAILWINDCSS</h2>
+            <div class="flex overflow-hidden select-none gap-10 md:gap-40">
+                <div class="flex min-w-full shrink-0 justify-around gap-10 md:gap-40 text-xl md:text-3xl font-['Electrolize'] tracking-wider text-[#F3F4F6]">
+                    <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-html5 text-[#FF6B00]"></span> HTML5</h2>
+                    <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-css3-alt text-[#8B5CF6]"></span> CSS3</h2>
+                    <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-js text-yellow-400"></span> JAVASCRIPT</h2>
+                    <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-bootstrap text-purple-500"></span> BOOTSTRAP</h2>
+                    <h2 class="flex gap-3 items-center shrink-0"><span class="fas fa-wind text-cyan-400"></span> TAILWINDCSS</h2>
                 </div>
-                
-                <div aria-hidden="true" class="animate-marquee-reverse flex min-w-full shrink-0 justify-around gap-40 text-3xl font-['Electrolize'] tracking-wider text-[#F3F4F6]">
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-html5 text-[#FF6B00]"></span> HTML5</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-css3-alt text-[#8B5CF6]"></span> CSS3</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-js text-yellow-400"></span> JAVASCRIPT</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fab fa-bootstrap text-purple-500"></span> BOOTSTRAP</h2>
-                <h2 class="flex gap-3 items-center shrink-0"><span class="fas fa-wind text-cyan-400"></span> TAILWINDCSS</h2>
-                </div>
-
             </div>
         </section>
     </header>
+
     <main>
-        <section class="flex justify-center items-center pt-150" id="expertises">
-            <div class="text-center">
-                <div class="bg-gradient-to-r from-secondary to-tertiary w-150 h-2 rounded-full m-auto my-10 flex justify-center items-center"></div>
-                <h1 class="text-6xl font-bold font-science uppercase py-4">Vision & Alignement</h1>
-                <p class="py-10">Pourquoi l'équilibre exact entre ingénierie logicielle robuste <br> et précision d'interface est le seul chemin vers <br> le succès de votre produit numérique.</p>
+        <!-- Vision Section -->
+        <section class="flex justify-center items-center pt-20 px-6" id="expertises">
+            <div class="text-center max-w-2xl">
+                <div class="bg-gradient-to-r from-secondary to-tertiary w-24 h-2 rounded-full m-auto my-6"></div>
+                <h2 class="text-3xl sm:text-5xl font-bold font-science uppercase py-4">Vision & Alignement</h2>
+                <p class="py-4 text-gray-300">Pourquoi l'équilibre exact entre ingénierie logicielle robuste et précision d'interface est le seul chemin vers le succès de votre produit numérique.</p>
             </div>
         </section>
-        <section class="px-100 py-80">
-            <div class="py-70">
-                <h1 class="text-6xl font-bold font-science uppercase py-4">Mes Piliers Techniques</h1>
-                <div class="bg-gradient-to-r from-secondary to-tertiary w-150 h-2 rounded-full"></div>
-            </div>
-            <div class="flex justify-between gap-70 py-10">
-                <div class="border border-tertiary bg-sixty px-50 py-80 rounded-lg backdrop-blur-md transition-transform hover:-translate-y-5 hover:shadow-[10px_0__20px_#8B5CF6] duration-500 ease-in-out">
-                    <span class="fas fa-code pt-4 w-50 h-50 rounded-lg bg-secondary"></span>
-                    <h3 class="text-2xl font-bold font-science py-10 text-secondary">Architectures Robustes</h3>
-                    <p>Développement de serveurs API ultra-rapides, de bases de données hautement relationnelles et d'architectures distribuées adaptées à la charge.</p>
-                </div>
-                <div class="border border-tertiary bg-sixty px-50 py-80 rounded-lg backdrop-blur-md transition-transform hover:-translate-y-5 hover:shadow-[10px_0__20px_#8B5CF6] duration-500 ease-in-out">
-                    <span class="fas fa-wand-magic-sparkles pt-4 w-50 h-50 rounded-lg bg-secondary"></span>
-                    <h3 class="text-2xl font-bold font-science py-10 text-secondary">Interfaces d'Impact</h3>
-                    <p>Création de parcours utilisateurs instinctifs dotés d'animations subtiles et fluides, garantissant des interactions soignées et mémorables.</p>
-                </div>
-                <div class="border border-tertiary bg-sixty px-50 py-80 rounded-lg backdrop-blur-md transition-transform hover:-translate-y-5 hover:shadow-[10px_0__20px_#8B5CF6] duration-500 ease-in-out">
-                    <span class="fas fa-gauge-high pt-4 w-50 h-50 rounded-lg bg-secondary"></span>
-                    <h3 class="text-2xl font-bold font-science py-10 text-secondary">Vélocité Absolue</h3>
-                    <p>Optimisation avancée des performances pour obtenir des scores Lighthouse parfaits, maximisant ainsi l'engagement de vos visiteurs.</p>
-                </div>
-            </div>
-        </section>
-        <section class="px-100 py-80" id="competences">
-            <div class="py-20">
-                <h1 class="text-6xl font-bold font-science uppercase text-center py-4">MAITRISE TECHNOLOGIQUE</h1>
-                <div class="bg-gradient-to-r from-secondary to-tertiary w-150 h-2 m-auto rounded-full"></div>
-            </div>
-            <div class="w-full max-w-5xl mx-auto p-8 bg-[#0F0C1B] rounded-xl space-y-6">
-  
-                <div class="flex items-center gap-6">
-                    <div class="w-1/4 text-right">
-                    <span class="font-bold font-electrolize text-2xl">
-                        HTML5 / CSS3
-                    </span>
-                    </div>
-                    <div class="w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-11 p-1 flex items-center relative overflow-hidden">
-                    <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-1000" style="width: 95%;">
-                        <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">95%</span>
-                    </div>
-                    </div>
-                </div>
 
-                <div class="flex items-center gap-6">
-                    <div class="w-1/4 text-right">
-                    <span class="font-bold font-electrolize text-2xl">
-                        Bootstrap
-                    </span>
-                    </div>
-                    <div class="w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-11 p-1 flex items-center relative overflow-hidden">
-                    <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-1000" style="width: 80%;">
-                        <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">80%</span>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-6">
-                    <div class="w-1/4 text-right">
-                    <span class="font-bold font-electrolize text-2xl">
-                        JavaScript
-                    </span>
-                    </div>
-                    <div class="w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-11 p-1 flex items-center relative overflow-hidden">
-                    <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-1000" style="width: 45%;">
-                        <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">45%</span>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-6">
-                    <div class="w-1/4 text-right">
-                    <span class="font-bold font-electrolize text-2xl">
-                        Tailwindcss
-                    </span>
-                    </div>
-                    <div class="w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-11 p-1 flex items-center relative overflow-hidden">
-                    <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-1000" style="width: 75%;">
-                        <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">75%</span>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-6">
-                    <div class="w-1/4 text-right">
-                    <span class="font-bold font-electrolize text-2xl">
-                        PHP & MySQL
-                    </span>
-                    </div>
-                    <div class="w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-11 p-1 flex items-center relative overflow-hidden">
-                    <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-1000" style="width: 55%;">
-                        <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">55%</span>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-6">
-                    <div class="w-1/4 text-right">
-                    <span class="font-bold font-electrolize text-2xl">
-                        Figma
-                    </span>
-                    </div>
-                    <div class="w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-11 p-1 flex items-center relative overflow-hidden">
-                    <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-1000" style="width: 40%;">
-                        <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">40%</span>
-                    </div>
-                    </div>
-                </div>
+        <!-- Piliers Techniques -->
+        <section class="px-6 md:px-16 py-12">
+            <div class="py-6">
+                <h2 class="text-3xl sm:text-5xl font-bold font-science uppercase py-4">Mes Piliers Techniques</h2>
+                <div class="bg-gradient-to-r from-secondary to-tertiary w-32 h-2 rounded-full"></div>
             </div>
-            <center class="">Une expertise technologique axée sur les stacks modernes à haute performance <br> énergétique et computationnelle.</center>
-        </section>
-        <section class="px-100 py-20" id="realisations">
-            <div class="py-70">
-                <h1 class="text-6xl font-bold font-science uppercase py-4">SYSTEMES & PRODUITS RECENTS</h1>
-                <div class="bg-gradient-to-r from-secondary to-tertiary w-150 h-2 rounded-full"></div>
-            </div>
-            <div class="flex justify-between gap-70">
-                <div class="">
-                    <div class="rounded-lg w-400 h-300 overflow-hidden">
-                        <img src="projet1.webp" alt="rodriguez-voitan-azaria-projet-image" class="hover:scale-110 transition-transform duration-500 ease-in-out">
-                    </div>
-                    <p><span class="text-2xl text-secondary font-science font-bold">1</span> &nbsp; Créer un site pour une peronnalité <br> nationale du Bénin appelé Synnova TOCLOE.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-6">
+                <div class="border border-tertiary bg-sixty p-8 rounded-lg backdrop-blur-md transition-transform hover:-translate-y-2 duration-500">
+                    <span class="fas fa-code pl-2 pr-8 py-2 text-xl rounded-lg bg-secondary text-white"></span>
+                    <h3 class="text-2xl font-bold font-science py-4 text-secondary">Architectures Robustes</h3>
+                    <p class="text-gray-300">Développement de serveurs API ultra-rapides, de bases de données hautement relationnelles et d'architectures distribuées adaptées à la charge.</p>
                 </div>
-                <div class="">
-                    <div class="rounded-lg w-400 h-300 overflow-hidden">
-                        <img src="projet2.webp" alt="rodriguez-voitan-azaria-projet-image" class="hover:scale-110 transition-transform duration-500 ease-in-out">
-                    </div>
-                    <p><span class="text-2xl text-secondary font-science font-bold">2</span> &nbsp; Créer un site de vente de ticket pour la célébration <br> des 10ans de carriére d'un artiste nationale appelé <br> Vano Baby.</p>
+                <div class="border border-tertiary bg-sixty p-8 rounded-lg backdrop-blur-md transition-transform hover:-translate-y-2 duration-500">
+                    <span class="fas fa-wand-magic-sparkles pl-2 pr-8 py-2 text-xl rounded-lg bg-secondary text-white"></span>
+                    <h3 class="text-2xl font-bold font-science py-4 text-secondary">Interfaces d'Impact</h3>
+                    <p class="text-gray-300">Création de parcours utilisateurs instinctifs dotés d'animations subtiles et fluides, garantissant des interactions soignées et mémorables.</p>
                 </div>
-                <div class="">
-                    <div class="rounded-lg w-400 h-300 overflow-hidden">
-                        <img src="projet3.png" alt="rodriguez-voitan-azaria-projet-image" class="hover:scale-110 transition-transform duration-500 ease-in-out">
-                    </div>
-                    <p><span class="text-2xl text-secondary font-science font-bold">3</span> &nbsp; Créer un portfolio à un traducteur français - chinois. <br> </p>
+                <div class="border border-tertiary bg-sixty p-8 rounded-lg backdrop-blur-md transition-transform hover:-translate-y-2 duration-500">
+                    <span class="fas fa-gauge-high pl-2 pr-8 py-2 text-xl rounded-lg bg-secondary text-white"></span>
+                    <h3 class="text-2xl font-bold font-science py-4 text-secondary">Vélocité Absolue</h3>
+                    <p class="text-gray-300">Optimisation avancée des performances pour obtenir des scores Lighthouse parfaits, maximisant ainsi l'engagement de vos visiteurs.</p>
                 </div>
             </div>
         </section>
-        <section class="px-100 py-40">
-            <div class="py-70">
-                <h1 class="text-6xl text-center font-bold font-science uppercase py-4">L'IMPACT PAR LES CHIFFRES</h1>
-                <div class="bg-gradient-to-r from-secondary to-tertiary w-150 h-2 rounded-full m-auto"></div>
+
+        <!-- Competences -->
+        <section class="px-6 md:px-16 py-12" id="competences">
+            <div class="py-6">
+                <h2 class="text-3xl sm:text-5xl font-bold font-science uppercase text-center py-4">MAITRISE TECHNOLOGIQUE</h2>
+                <div class="bg-gradient-to-r from-secondary to-tertiary w-32 h-2 m-auto rounded-full"></div>
             </div>
-            <div class="flex justify-between items-center py-30">
-                <div class="w-full">
-                    <span class="text-9xl font-bold font-science bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text flex justify-center items-center">99%</span>
-                    <h4 class="text-2xl font-bold text-center p-4">OPTIMISATION LIGHTHOUSE</h4>
+            <div class="w-full max-w-4xl mx-auto p-4 sm:p-8 bg-[#0F0C1B] rounded-xl space-y-6 border border-tertiary/20">
+                
+                <!-- Skill Item -->
+                <div class="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                    <div class="sm:w-1/4 sm:text-right font-bold font-electrolize text-lg sm:text-xl">HTML5 / CSS3</div>
+                    <div class="sm:w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-10 p-1 flex items-center relative overflow-hidden">
+                        <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4" style="width: 95%;">
+                            <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">95%</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="w-full">
-                    <h5 class="text-2xl font-bold">Des temps de réponse inégalés</h5>
-                    <p class="py-4">Parce que chaque milliseconde de gagnée améliore de manière <br> significative le taux de conversion, je fais de l'optimisation réseau et du <br> nettoyage de bundle une priorité absolue de mes processus de livraison. <br>Zéro dépendance inutile, compression dynamique et mise en cache <br> stratégique permettent de servir vos clients dans un confort visuel <br> instantané.</p>
+
+                <div class="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                    <div class="sm:w-1/4 sm:text-right font-bold font-electrolize text-lg sm:text-xl">Bootstrap</div>
+                    <div class="sm:w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-10 p-1 flex items-center relative overflow-hidden">
+                        <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4" style="width: 80%;">
+                            <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                    <div class="sm:w-1/4 sm:text-right font-bold font-electrolize text-lg sm:text-xl">JavaScript</div>
+                    <div class="sm:w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-10 p-1 flex items-center relative overflow-hidden">
+                        <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4" style="width: 45%;">
+                            <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">45%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                    <div class="sm:w-1/4 sm:text-right font-bold font-electrolize text-lg sm:text-xl">Tailwindcss</div>
+                    <div class="sm:w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-10 p-1 flex items-center relative overflow-hidden">
+                        <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4" style="width: 75%;">
+                            <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">75%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                    <div class="sm:w-1/4 sm:text-right font-bold font-electrolize text-lg sm:text-xl">PHP & MySQL</div>
+                    <div class="sm:w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-10 p-1 flex items-center relative overflow-hidden">
+                        <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4" style="width: 55%;">
+                            <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">55%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                    <div class="sm:w-1/4 sm:text-right font-bold font-electrolize text-lg sm:text-xl">Figma</div>
+                    <div class="sm:w-3/4 bg-black/40 border border-[#8B5CF6]/10 rounded-xl h-10 p-1 flex items-center relative overflow-hidden">
+                        <div class="h-full rounded-lg bg-gradient-to-r from-[#FF6B00] to-[#8B5CF6] flex items-center justify-end pr-4" style="width: 40%;">
+                            <span class="font-['Electrolize'] text-xs font-bold text-[#F3F4F6]">40%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p class="text-center text-sm md:text-base text-gray-400 mt-6 max-w-xl mx-auto">Une expertise technologique axée sur les stacks modernes à haute performance énergétique et computationnelle.</p>
+        </section>
+
+        <!-- Realisations -->
+        <section class="px-6 md:px-16 py-12" id="realisations">
+            <div class="py-6">
+                <h2 class="text-3xl sm:text-5xl font-bold font-science uppercase py-4">SYSTEMES & PRODUITS RECENTS</h2>
+                <div class="bg-gradient-to-r from-secondary to-tertiary w-32 h-2 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <div class="rounded-lg w-full h-56 overflow-hidden border border-tertiary/20">
+                        <img src="projet1.webp" alt="rodriguez-voitan-azaria-projet-image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-in-out">
+                    </div>
+                    <p class="text-sm md:text-base"><span class="text-2xl text-secondary font-science font-bold">1</span> &nbsp; Créer un site pour une personnalité nationale du Bénin appelé Synnova TOCLOE.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded-lg w-full h-56 overflow-hidden border border-tertiary/20">
+                        <img src="projet2.webp" alt="rodriguez-voitan-azaria-projet-image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-in-out">
+                    </div>
+                    <p class="text-sm md:text-base"><span class="text-2xl text-secondary font-science font-bold">2</span> &nbsp; Créer un site de vente de ticket pour la célébration des 10 ans de carrière d'un artiste national appelé Vano Baby.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded-lg w-full h-56 overflow-hidden border border-tertiary/20">
+                        <img src="projet3.png" alt="rodriguez-voitan-azaria-projet-image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-in-out">
+                    </div>
+                    <p class="text-sm md:text-base"><span class="text-2xl text-secondary font-science font-bold">3</span> &nbsp; Créer un portfolio à un traducteur français - chinois.</p>
                 </div>
             </div>
         </section>
-        <section class="px-100 py-20" id="parcours">
-            <div class="py-70">
-                <h1 class="text-6xl font-bold font-science uppercase py-4">Expérience & Parcours</h1>
-                <div class="bg-gradient-to-r from-secondary to-tertiary w-150 h-2 rounded-full"></div>
+
+        <!-- Impact -->
+        <section class="px-6 md:px-16 py-12">
+            <div class="py-6">
+                <h2 class="text-3xl sm:text-5xl text-center font-bold font-science uppercase py-4">L'IMPACT PAR LES CHIFFRES</h2>
+                <div class="bg-gradient-to-r from-secondary to-tertiary w-32 h-2 rounded-full m-auto"></div>
             </div>
-            <div class="max-w-5xl w-full mx-auto flex flex-col relative py-20">
-  
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 py-8">
+                <div class="w-full text-center md:text-left">
+                    <span class="text-7xl sm:text-9xl font-bold font-science bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text flex justify-center md:justify-start items-center">99%</span>
+                    <h4 class="text-xl sm:text-2xl font-bold pt-4">OPTIMISATION LIGHTHOUSE</h4>
+                </div>
+                <div class="w-full text-gray-300 text-sm sm:text-base">
+                    <h5 class="text-xl sm:text-2xl font-bold text-primary mb-2">Des temps de réponse inégalés</h5>
+                    <p>Parce que chaque milliseconde de gagnée améliore de manière significative le taux de conversion, je fais de l'optimisation réseau et du nettoyage de bundle une priorité absolue de mes processus de livraison. Zéro dépendance inutile, compression dynamique et mise en cache stratégique permettent de servir vos clients dans un confort visuel instantané.</p>
+                </div>
+            </div>
+        </section>
+        <section class="px-6 md:px-100 py-20" id="parcours">
+            <div class="py-10 md:py-70">
+                <h2 class="text-3xl md:text-6xl font-bold font-science uppercase py-4 text-center">Expérience & Parcours</h2>
+                <div class="bg-gradient-to-r from-secondary to-tertiary w-32 h-2 m-auto rounded-full"></div>
+            </div>
+
+            <!-- VERSION ORDINATEUR (Conservée à l'identique avec hidden md:block) -->
+            <div class="hidden md:flex max-w-5xl w-full mx-auto flex-col relative py-20">
                 <div class="grid grid-cols-4 gap-4 h-32 items-end">
                     <div></div>
                     <div class="flex flex-col items-center text-center pb-6">
-                    <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">2021-2023</div>
-                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
-                        Architecte Full-Stack sur des plateformes transactionnelles à forte charge.
-                    </p>
+                        <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">2021-2023</div>
+                        <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
+                            Architecte Full-Stack sur des plateformes transactionnelles à forte charge.
+                        </p>
                     </div>
                     <div></div>
                     <div class="flex flex-col items-center text-center pb-6">
-                    <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">Aujourd'hui</div>
-                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
-                        En 3ème année, je conçois et déploie des applications web géantes et complexes.
-                    </p>
+                        <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">Aujourd'hui</div>
+                        <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
+                            En 3ème année, je conçois et déploie des applications web géantes et complexes.
+                        </p>
                     </div>
- 
                 </div>
 
                 <div class="relative w-full h-10 flex items-center">
                     <div class="absolute inset-x-0 h-[3px] bg-gradient-to-r from-[#FF6B00] via-[#FF6B00] to-[#8B5CF6] shadow-[0_0_10px_rgba(255,107,0,0.4)]"></div>
                     
                     <div class="grid grid-cols-4 w-full relative z-10">
-                    <div class="flex justify-center">
-                        <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                        <div class="flex justify-center">
+                            <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                        </div>
                     </div>
-                    <div class="flex justify-center">
-                        <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
-                    </div>
-                    <div class="flex justify-center">
-                        <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
-                    </div>
-                    <div class="flex justify-center">
-                        <div class="w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
-                    </div>
-                    </div>
-
                 </div>
 
                 <div class="grid grid-cols-4 gap-4 h-32 items-start">
-
                     <div class="flex flex-col items-center text-center pt-6">
-                    <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">2020-2021</div>
-                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
+                        <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">2020-2021</div>
+                        <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
+                            Développeur Front-End orienté interfaces et micro-interactions haut de gamme.
+                        </p>
+                    </div>
+                    <div></div>
+                    <div class="flex flex-col items-center text-center pt-6">
+                        <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">2023-2025</div>
+                        <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
+                            Consultant technique pour startups innovantes et conception de plateformes SaaS.
+                        </p>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+
+            <!-- VERSION MOBILE (Timeline verticale propre et lisible) -->
+            <div class="block md:hidden relative pl-8 space-y-8 my-6 border-l-2 border-[#FF6B00]/40 ml-4">
+                
+                <!-- Étape 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                    <div class="font-['Science_Gothic'] font-black text-base text-[#F3F4F6] tracking-wide">2020-2021</div>
+                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 mt-1 leading-relaxed">
                         Développeur Front-End orienté interfaces et micro-interactions haut de gamme.
                     </p>
-                    </div>
-                    <div></div>
-                    <div class="flex flex-col items-center text-center pt-6">
-                    <div class="font-['Science_Gothic'] font-black text-lg text-[#F3F4F6] tracking-wide">2023-2025</div>
-                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 max-w-[210px] mt-1.5 leading-relaxed">
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                    <div class="font-['Science_Gothic'] font-black text-base text-[#F3F4F6] tracking-wide">2021-2023</div>
+                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 mt-1 leading-relaxed">
+                        Architecte Full-Stack sur des plateformes transactionnelles à forte charge.
+                    </p>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                    <div class="font-['Science_Gothic'] font-black text-base text-[#F3F4F6] tracking-wide">2023-2025</div>
+                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 mt-1 leading-relaxed">
                         Consultant technique pour startups innovantes et conception de plateformes SaaS.
                     </p>
-                    </div>
-                    <div></div>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[#0F0C1B] border-4 border-[#FF6B00] shadow-[0_0_12px_#FF6B00]"></div>
+                    <div class="font-['Science_Gothic'] font-black text-base text-[#F3F4F6] tracking-wide">Aujourd'hui</div>
+                    <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 mt-1 leading-relaxed">
+                        En 3ème année, je conçois et déploie des applications web géantes et complexes.
+                    </p>
                 </div>
 
             </div>
         </section>
-        <section class="px-100 py-100">
-            <center class="text-6xl font-science">Créons de la valeur</center>
-            <p class="text-center py-4">Un projet d'envergure, une problématique de performance ou une ambition innovante ?</p>
-            <div class="flex justify-evenly items-center gap-20 py-20">
-                <div class="items-center text-center border border-secondary p-4 rounded-lg shadow-lg bg-sixty">
+        <section class="px-6 md:px-100 py-16 md:py-100">
+            <div class="text-3xl md:text-6xl font-science text-center">Créons de la valeur</div>
+            <p class="text-center py-4 text-sm md:text-base text-gray-300">Un projet d'envergure, une problématique de performance ou une ambition innovante ?</p>
+            
+            <!-- Conteneur adaptatif : Colonne sur mobile, Ligne sur Desktop -->
+            <div class="flex flex-col md:flex-row justify-evenly items-center gap-6 md:gap-20 py-10 md:py-20">
+                <div class="w-full md:w-auto items-center text-center border border-secondary p-4 rounded-lg shadow-lg bg-sixty">
                     <i class="fas fa-envelope text-secondary text-2xl"></i>
-                    <p class="font-bold">azariarodriguezvoitan@gmail.com</p>
+                    <p class="font-bold text-sm md:text-base mt-2">azariarodriguezvoitan@gmail.com</p>
                 </div>
-                <div class="items-center text-center border border-secondary p-4 rounded-lg shadow-lg bg-sixty">
+                <div class="w-full md:w-auto items-center text-center border border-secondary p-4 rounded-lg shadow-lg bg-sixty">
                     <i class="fas fa-globe text-secondary text-2xl"></i>
-                    <p class="font-bold">RODRIGUEZ-VOITAN Azaria</p>
+                    <p class="font-bold text-sm md:text-base mt-2">RODRIGUEZ-VOITAN Azaria</p>
                 </div>
-                <div class="items-center text-center border border-secondary p-4 rounded-lg shadow-lg bg-sixty">
+                <div class="w-full md:w-auto items-center text-center border border-secondary p-4 rounded-lg shadow-lg bg-sixty">
                     <i class="fas fa-location-dot text-secondary text-2xl"></i>
-                    <p class="font-bold">Basé à Abomey-Calavi, Disponible mondialement</p>
+                    <p class="font-bold text-sm md:text-base mt-2">Basé à Abomey-Calavi, Disponible mondialement</p>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="bg-[#0F0F1E] border-t border-[#8B5CF6]/10 py-12 px-6">
-  <div class="max-w-6xl w-full mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
-    
-    <div class="flex flex-col gap-3 max-w-sm">
-      <div class="">
-        <li class="font-science font-bold text-2xl bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text">AZAR.DEV</li>
-      </div>
-      <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/60 leading-relaxed">
-        Conception et développement d'architectures web géantes, fluides et d'une vélocité absolue.
-      </p>
-    </div>
+    <footer class="bg-[#0F0F1E] border-t border-[#8B5CF6]/10 py-12 px-6 md:px-12">
+        <div class="max-w-6xl w-full mx-auto flex flex-col md:flex-row justify-between items-start gap-10 md:gap-8">
+            
+            <div class="flex flex-col gap-3 max-w-sm">
+            <div class="">
+                <li class="font-science font-bold text-2xl bg-gradient-to-r from-secondary to-tertiary text-transparent bg-clip-text list-none">AZAR.DEV</li>
+            </div>
+            <p class="font-['Electrolize'] text-xs text-[#F3F4F6]/60 leading-relaxed">
+                Conception et développement d'architectures web géantes, fluides et d'une vélocité absolue.
+            </p>
+            </div>
 
-    <div class="flex flex-wrap gap-12 md:gap-24">
-      
-      <div class="flex flex-col gap-4">
-        <h3 class="font-['Science_Gothic'] font-black text-sm uppercase tracking-widest text-[#FF6B00]">
-          Navigation
-        </h3>
-        <ul class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 space-y-2.5">
-          <li>
-            <a href="index.html" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
-              <i class="fa-solid fa-house text-[10px]"></i> Accueil
-            </a>
-          </li>
-          <li>
-            <a href="#expertises" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
-              <i class="fa-solid fa-gears text-[10px]"></i> Expertises
-            </a>
-          </li>
-          <li>
-            <a href="#realisations" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
-              <i class="fa-solid fa-laptop-code text-[10px]"></i> Réalisations
-            </a>
-          </li>
-          <li>
-            <a href="#parcours" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
-              <i class="fa-solid fa-route text-[10px]"></i> Parcours
-            </a>
-          </li>
-        </ul>
-      </div>
+            <div class="flex flex-wrap gap-12 md:gap-24 w-full md:w-auto">
+            
+            <div class="flex flex-col gap-4">
+                <h3 class="font-['Science_Gothic'] font-black text-sm uppercase tracking-widest text-[#FF6B00]">
+                Navigation
+                </h3>
+                <ul class="font-['Electrolize'] text-xs text-[#F3F4F6]/70 space-y-2.5">
+                <li>
+                    <a href="index.html" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-house text-[10px]"></i> Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="#expertises" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-gears text-[10px]"></i> Expertises
+                    </a>
+                </li>
+                <li>
+                    <a href="#realisations" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-laptop-code text-[10px]"></i> Réalisations
+                    </a>
+                </li>
+                <li>
+                    <a href="#parcours" class="hover:text-[#8B5CF6] transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-route text-[10px]"></i> Parcours
+                    </a>
+                </li>
+                </ul>
+            </div>
 
-      <div class="flex flex-col gap-4">
-        <h3 class="font-['Science_Gothic'] font-black text-sm uppercase tracking-widest text-[#8B5CF6]">
-          Réseaux
-        </h3>
-        <div class="flex gap-4 text-lg text-[#F3F4F6]/70">
-          <a href="#" class="hover:text-[#FF6B00] transition-colors">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="#" class="hover:text-[#FF6B00] transition-colors">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="#" class="hover:text-[#FF6B00] transition-colors">
-            <i class="fab fa-x-twitter"></i>
-          </a>
+            <div class="flex flex-col gap-4">
+                <h3 class="font-['Science_Gothic'] font-black text-sm uppercase tracking-widest text-[#8B5CF6]">
+                Réseaux
+                </h3>
+                <div class="flex gap-4 text-lg text-[#F3F4F6]/70">
+                <a href="#" class="hover:text-[#FF6B00] transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="hover:text-[#FF6B00] transition-colors">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="hover:text-[#FF6B00] transition-colors">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                </div>
+            </div>
+
+            </div>
         </div>
-      </div>
 
-    </div>
-  </div>
+        <div class="max-w-6xl w-full mx-auto border-t border-[#8B5CF6]/5 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+            <p class="font-['Electrolize'] text-[10px] text-[#F3F4F6]/40 tracking-wide">
+            &copy; 2026 RODRIGUEZ-VOITAN Azaria. Tous droits réservés.
+            </p>
+            <p class="font-['Electrolize'] text-[10px] text-[#F3F4F6]/40 tracking-wide">
+            Driven by passion & velocity
+            </p>
+        </div>
+    </footer>
+<script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  <div class="max-w-6xl w-full mx-auto border-t border-[#8B5CF6]/5 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-    <p class="font-['Electrolize'] text-[10px] text-[#F3F4F6]/40 tracking-wide">
-      &copy; 2026 RODRIGUEZ-VOITAN Azaria. Tous droits réservés.
-    </p>
-    <p class="font-['Electrolize'] text-[10px] text-[#F3F4F6]/40 tracking-wide">
-      Driven by passion & velocity
-    </p>
-  </div>
-</footer>
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
